@@ -35,5 +35,5 @@ def search_v2(pattern, text):
 if __name__ == '__main__':
     text = 'AAAABAAAB'
     pattern = 'AAB'
-    offset = search_v2(pattern, text)
+    offset = search(pattern, text)
     print(f"Offset: {offset}")
