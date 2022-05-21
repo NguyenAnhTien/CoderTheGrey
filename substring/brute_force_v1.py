@@ -1,20 +1,39 @@
-
+"""
+@author: Coder The Grey
+@desc:
+    - Naive Solution of Substring Matching
+"""
 def search(pattern, text):
-    m = len(pattern)
-    n = len(text)
-    
-    for index in range(n - m + 1):
-        j = 0
-        while j < m: #be careful with for in Python, not same as in C/C++
-            if text[index + j] != pattern[j]:
+    """
+    @return:
+        offset: the leftmost ocurrence of pattern in the text
+    """
+    p_len = len(pattern)
+    t_len = len(text)
+
+    for offset in range(t_len - p_len + 1):
+        pointer = 0 #j
+        while pointer < p_len:
+            if text[offset + pointer] != pattern[pointer]:
+                #mismatch
                 break
-            j += 1
-        if (j == m):
-            return index
+            pointer += 1
+        if pointer == p_len:
+            return offset
+    return -1
+
+def search_v2(pattern, text):
+    p_len = len(pattern)
+    t_len = len(text)
+
+    for offset in range(t_len - p_len + 1):
+        #python string slice
+        if text[offset : offset + p_len] == pattern:
+            return offset
     return -1
 
 if __name__ == '__main__':
     text = 'AAAABAAAB'
     pattern = 'AAB'
-    pos = search(pattern, text)
-    print(pos)
+    offset = search_v2(pattern, text)
+    print(f"Offset: {offset}")
