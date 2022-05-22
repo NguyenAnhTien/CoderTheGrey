@@ -1,3 +1,8 @@
+"""
+@author: Coder The Grey
+@date: 2022-05-22
+@leetcode: 1668-Maximum Repeating Substring
+"""
 def search(pattern, text):
     t_len = len(text)
     p_len = len(pattern)
