@@ -1,28 +1,21 @@
+"""
+@author: Coder The Grey
+@date  : 2022-05-22
+@leetcode: https://bit.ly/3lvWJbN
+"""
 
-def isPalindrome(s):
-    clean_str = ""
-    for char in s:
-        if char.isalpha() or char.isnumeric():
-            clean_str += char.lower()
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        clean_str = ""
+        for char in s:
+            if char.isalpha() or char.isnumeric():
+                clean_str += char.lower()
 
-    center = (0 + len(clean_str) - 1) // 2
-    left = center
-    right = center
-    if len(clean_str) % 2 == 0:
-        right = center + 1
-    while left >= 0 and right < len(clean_str) and clean_str[left] == clean_str[right]:
-        left -= 1
-        right += 1
-
-    if (right - left -1) == len(clean_str):
+        left = 0
+        right = len(clean_str) - 1
+        while left < right:
+            if clean_str[left] != clean_str[right]:
+                return False
+            left += 1
+            right -= 1
         return True
-    return False
-
-if __name__ == '__main__':
-    inputs = ["A man, a plan, a canal: Panama",
-            "aa",
-            "cabbac",
-            "race a car",
-            " "]
-    for s in inputs:
-        print(isPalindrome(s))
