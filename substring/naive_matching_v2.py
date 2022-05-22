@@ -1,3 +1,7 @@
+"""
+@author: Coder The Grey
+@date: 2022-05-22
+"""
 
 def search(pattern, text):
     M = len(pattern)
