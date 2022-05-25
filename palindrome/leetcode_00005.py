@@ -1,3 +1,9 @@
+"""
+@author  : Coder The Grey
+@date    : 2022-05-23
+@leetcode: https://leetcode.com/problems/longest-palindromic-substring/
+"""
+
 def is_palidrome(text, left, right):
     left_ = left
     right_ = right
@@ -22,7 +28,6 @@ class Solution:
                 start_ = odd_left
                 end_ = odd_right
 
-            # print(end - start)
             if (end - start) < (end_ - start_):
                 start = start_
                 end = end_
